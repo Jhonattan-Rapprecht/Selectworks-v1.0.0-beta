@@ -1,4 +1,4 @@
-# SelectWorks.nl
+# Selectworks.nl
 
 SelectWorks.nl is a modular web application designed for managing job vacancies (**Vacatures**) and assignments (**Opdrachten**) for professionals and companies.  
 The platform provides a structured way to publish, browse, and apply for positions while keeping the system lightweight and extendable.
@@ -6,6 +6,7 @@ The platform provides a structured way to publish, browse, and apply for positio
 ---
 
 ## 🚀 Features
+
 - Job vacancy listings (`vacatures`)
 - Assignment management (`opdrachten`)
 - Region-based filters (Amsterdam, Rotterdam, Utrecht, Den Haag)
@@ -16,10 +17,10 @@ The platform provides a structured way to publish, browse, and apply for positio
 ---
 
 ## 🛠️ Technology
-- **Backend:** PHP  
-- **Frontend:** HTML5, CSS3, JavaScript  
-- **Database:** MySQL / MariaDB (planned integration)  
-- **Hosting Environment:** Strato shared hosting  
+
+- Backend: PHP, Laravel  
+- Frontend: HTML5, CSS3, JavaScript
+- Database: MySQL 
 
 ---
 
@@ -55,6 +56,7 @@ slw-webapp-v1/
 🧑‍💻 Usage
 
 Access job vacancies:
+
 https://selectworks.nl/slw-webapp-v1/app-modules/vacatures/vacatures.php
 
 Browse by region and view available opportunities.
@@ -63,8 +65,10 @@ Use Soliciteren to apply for a position.
 
 Use Contact for inquiries.
 
-📞 Contact
+📞 Contact by phone or email
 
-This project is maintained by SelectWorks.nl.
+==================================================================
+
+This project is maintained by Jhonattan Rapprecht periodically
 For inquiries, contact the development team at Codeflowers.nl
 
