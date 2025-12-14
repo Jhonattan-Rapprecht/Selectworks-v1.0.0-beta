@@ -1,6 +1,6 @@
 # Selectworks.nl
 
-SelectWorks.nl is a modular web application designed for managing job vacancies (**Vacatures**) and assignments (**Opdrachten**) for professionals and companies.  
+Selectworks.nl is a modular web application designed for managing job vacancies (**Vacatures**) and assignments (**Opdrachten**) for professionals and companies.  
 The platform provides a structured way to publish, browse, and apply for positions while keeping the system lightweight and extendable.
 
 ---
@@ -13,6 +13,8 @@ The platform provides a structured way to publish, browse, and apply for positio
 - Contact & application workflows
 - Modular PHP architecture for future expansion
 - Responsive design optimized for desktop and mobile
+- User management capabilities by administrators
+- Reporting capabilities and more...
 
 ---
 
