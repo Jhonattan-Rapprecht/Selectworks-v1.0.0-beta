@@ -64,16 +64,16 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 				
 				/* Include error controller on each page */
 				
-				include($root.'/selectworks/slw-webapp-v1/app-controllers/error-controller/error-controller.php');
+				include($root.'/slw-webapp-v1/app-controllers/error-controller/error-controller.php');
 
 					
 				/* Include content panel overlay */
 				
-				include($root.'/selectworks/slw-webapp-v1/app-includes/content-panels/content-panel-a.php');
+				include($root.'/slw-webapp-v1/app-includes/content-panels/content-panel-a.php');
 				
 				
 				/* Include the 'SW' text animation */
 				
-				// include($root.'/selectworks/slw-webapp-v1/app-animations/combined-animations.php');
+				// include($root.'/slw-webapp-v1/app-animations/combined-animations.php');
 				
 ?>
