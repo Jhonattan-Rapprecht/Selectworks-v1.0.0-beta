@@ -20,7 +20,6 @@
     
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
-		<script   src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
 		
 		<!-- Content panel(s) javascript files -->
 		
@@ -34,7 +33,7 @@
 		
 		<!-- Animations javascript files -->
 		
-		<!-- <script src="/slw-webapp-v1/app-animations/combined-animations.js"></script> -->
+		<script src="/slw-webapp-v1/app-animations/combined-animations.js"></script>
 		
 		
 		<!-- Consent boxes javascript files -->
