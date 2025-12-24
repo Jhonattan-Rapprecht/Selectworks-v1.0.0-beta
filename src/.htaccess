@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Ensure the base path is correct for Codespaces
+RewriteBase /
+
+# If the requested file or directory exists, serve it normally
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise route everything to index.php
+RewriteRule ^ index.php [L]
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+
