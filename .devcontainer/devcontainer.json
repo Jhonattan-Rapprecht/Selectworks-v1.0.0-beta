@@ -1,0 +1,26 @@
+{
+  "name": "Selectworks-Codespace-Build-1.0.0-Dev",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "web",
+  "runServices": ["web", "phpmyadmin", "db"],
+  "overrideCommand": false,
+  "workspaceFolder": "/workspaces/Selectworks-v1.0.0",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "php.validate.executablePath": "/usr/local/bin/php",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode"
+}
