@@ -1,20 +1,24 @@
 {
   "name": "Selectworks Dev Container",
+
   "dockerComposeFile": [
     "../docker-compose.yml"
   ],
+
   "service": "web",
-  "runServices": [
-    "web",
-    "phpmyadmin",
-    "db"
-  ],
+  "runServices": ["web", "phpmyadmin", "db"],
+
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "moby": false
-    }
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
+
+  "postCreateCommand": "git lfs install",
+
   "customizations": {
     "vscode": {
       "settings": {
@@ -28,5 +32,6 @@
       ]
     }
   },
+
   "remoteUser": "vscode"
 }
