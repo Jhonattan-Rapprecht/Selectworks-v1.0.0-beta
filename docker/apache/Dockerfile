@@ -14,19 +14,21 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
 
 RUN a2enmod rewrite
 
-# Set document root
+# Create vscode user for Codespaces
+RUN useradd -ms /bin/bash vscode \
+    && echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 ENV APACHE_DOCUMENT_ROOT=/var/www
 
-# Overwrite Apache vhost config
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+
 RUN printf "<VirtualHost *:80>\n\
-    DocumentRoot /var/www\n\
-    <Directory /var/www>\n\
+    DocumentRoot ${APACHE_DOCUMENT_ROOT}\n\
+    <Directory ${APACHE_DOCUMENT_ROOT}>\n\
         AllowOverride All\n\
+        Options Indexes FollowSymLinks\n\
         Require all granted\n\
     </Directory>\n\
 </VirtualHost>\n" > /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /var/www
-
-CMD ["apache2-foreground"]
-
