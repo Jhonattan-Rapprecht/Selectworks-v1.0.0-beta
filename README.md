@@ -13,7 +13,7 @@ The platform provides a structured way to publish, browse, and apply for positio
 - Contact & application workflows
 - Modular PHP architecture for future expansion
 - Responsive design optimized for desktop and mobile
-- User management capabilities by administrators
+- User management capabilities of recruiter accounts by administrators
 - Reporting capabilities and more...
 
 ---
@@ -22,7 +22,7 @@ The platform provides a structured way to publish, browse, and apply for positio
 
 - Backend: PHP, Laravel  
 - Frontend: HTML5, CSS3, JavaScript
-- Database: MySQL 
+- Database: MySQL
 
 ---
 
