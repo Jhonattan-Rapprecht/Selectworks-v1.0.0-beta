@@ -1,1 +1,19 @@
+# --- Improve GitHub language detection ---
+
+# Treat PHP, JS, and CSS as primary detectable languages
+*.php linguist-detectable=true
+*.js linguist-detectable=true
+*.css linguist-detectable=true
+
+# Ignore vendor and build folders
+vendor/* linguist-vendored
+node_modules/* linguist-vendored
+public/build/* linguist-generated
+public/assets/* linguist-generated
+
+# Ignore environment/config noise
+*.env linguist-detectable=false
+docker/* linguist-detectable=false
+docker-compose.yml linguist-detectable=false
+Dockerfile linguist-detectable=false
 
