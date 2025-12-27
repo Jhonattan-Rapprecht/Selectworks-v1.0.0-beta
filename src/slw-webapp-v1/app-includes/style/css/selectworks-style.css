@@ -1,62 +1,139 @@
-	
-	
-	/* Custom stylesheet */
+/* --------------------------------------------------
+   GLOBAL LAYOUT
+-------------------------------------------------- */
 
-	body
-	
-	{
-	
-	margin 0;
-	padding: 0px;
-	
-	}
-	
-  .page-header p
-
- 	{
-
- 	padding-left: 10px;
-	padding-top: 50px;
- 	text-align: center;
- 		   
- 	}
- 	
- 	.panel-container
- 	
-	{
- 	
- 	z-index: 2000; 
-	position: fixed; 
-	right: 25%; 
-	top: 15%; 
-	width: 52%; 
-	margin-left: auto; 
-	margin-right: auto; 
-	height: 500px; 
-	background-color: white; 
-	padding: 50px; 
-	border: 10px solid black; 
-	border-radius: 1%;
-
-	}
-	
-	/* The Close Button for the content panel */
-	
-	.close {
-  color: grey;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
- 	footer
+body {
+	height: 100%;
+	margin: 0;
 
- 	{
-	
+	/* space for fixed navbar */
+	padding-top: 70px;
 
- 	padding-top: 50px;
- 	margin-left:auto; 		   
- 	margin-right: auto;
- 
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 
- 	}
+	font-family: Arial, sans-serif;
+}
+
+main {
+	flex: 1;
+	width: 100%;
+	display: block;
+}
+
+/* --------------------------------------------------
+   PAGE HEADER
+-------------------------------------------------- */
+
+.page-header {
+	width: 100%;
+	text-align: center;
+
+	/* reduced height so footer stays visible */
+	padding: 20px 0 10px 0;
+}
+
+.page-header p {
+	margin: 0;
+}
+
+.page-header img {
+	display: block;
+	margin: 0 auto;
+	width: 300px;
+	/* reduced from 350px */
+	height: auto;
+}
+
+/* --------------------------------------------------
+   404 PAGE
+-------------------------------------------------- */
+
+.error-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	/* controlled spacing so footer stays visible */
+	padding-top: 80px;
+	/* distance from header */
+	padding-bottom: 5px;
+	/* distance from footer */
+}
+
+.error-container {
+	text-align: center;
+}
+
+.error-title {
+	font-size: 120px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.error-message {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.error-button {
+	display: inline-block;
+	padding: 12px 24px;
+	background: #007bff;
+	color: white;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.error-button:hover {
+	background: #0056b3;
+}
+
+/* --------------------------------------------------
+   PANEL CONTAINER (your popup panel)
+-------------------------------------------------- */
+
+.panel-container {
+	z-index: 2000;
+	position: fixed;
+	right: 25%;
+	top: 15%;
+	width: 52%;
+	height: 500px;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	background-color: white;
+	padding: 50px;
+
+	border: 10px solid black;
+	border-radius: 1%;
+}
+
+.close {
+	color: grey;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
+footer {
+	text-align: center;
+
+	/* reduced spacing so it stays visible */
+	margin-top: 5px;
+	padding: 20px 0;
+}
