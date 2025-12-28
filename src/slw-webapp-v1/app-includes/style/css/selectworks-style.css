@@ -11,14 +11,9 @@ html {
 body {
 	height: 100%;
 	margin: 0;
-
-	/* space for fixed navbar */
-	padding-top: 70px;
-
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-
 	font-family: Arial, sans-serif;
 }
 
@@ -26,6 +21,7 @@ main {
 	flex: 1;
 	width: 100%;
 	display: block;
+	margin-top: 30px;
 }
 
 /* --------------------------------------------------
@@ -98,7 +94,7 @@ main {
 
 /* --------------------------------------------------
    PANEL CONTAINER (your popup panel)
--------------------------------------------------- */
+-------------------------------------------------- 
 
 .panel-container {
 	z-index: 2000;
@@ -126,6 +122,8 @@ main {
 	cursor: pointer;
 }
 
+*/
+
 /* --------------------------------------------------
    FOOTER
 -------------------------------------------------- */
@@ -135,5 +133,5 @@ footer {
 
 	/* reduced spacing so it stays visible */
 	margin-top: 5px;
-	padding: 20px 0;
+	padding: 0px 0;
 }
