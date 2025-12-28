@@ -1,38 +1,58 @@
 /* --------------------------------------------------
-   GLOBAL LAYOUT
+   1. GLOBAL RESET & BASE LAYOUT
 -------------------------------------------------- */
 
-html {
+html,
+body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
 body {
-	height: 100%;
-	margin: 0;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	font-family: Arial, sans-serif;
 }
 
+/* Main content grows to fill space between navbar & footer */
 main {
 	flex: 1;
 	width: 100%;
 	display: block;
-	margin-top: 30px;
 }
 
 /* --------------------------------------------------
-   PAGE HEADER
+   2. NAVBAR (Bootstrap-based)
 -------------------------------------------------- */
 
+/* If your navbar is fixed-top (Bootstrap class: .navbar-fixed-top)
+   we create spacing BELOW it using margin on <main>, NOT padding on <body>.
+*/
+
+.navbar-fixed-top {
+	z-index: 1030;
+	/* ensure it stays above content */
+}
+
+/* Adjust this value to match your navbar height */
+main {
+	margin-top: 70px;
+	/* default Bootstrap navbar height */
+}
+
+/* If your navbar is NOT fixed-top, remove the margin-top above */
+
+
+/* --------------------------------------------------
+   3. GLOBAL PAGE STRUCTURE (HEADER, FOOTER, LAYOUT)
+-------------------------------------------------- */
+
+/* PAGE HEADER (logo + title area) */
 .page-header {
 	width: 100%;
 	text-align: center;
-
-	/* reduced height so footer stays visible */
 	padding: 20px 0 10px 0;
 }
 
@@ -44,28 +64,32 @@ main {
 	display: block;
 	margin: 0 auto;
 	width: 300px;
-	/* reduced from 350px */
 	height: auto;
 }
 
+/* FOOTER (HTML tag <footer class="container"> ) */
+footer.container {
+	padding: 20px;
+}
+
+
 /* --------------------------------------------------
-   404 PAGE
+   4. PAGE-SPECIFIC STYLES (404 PAGE)
 -------------------------------------------------- */
 
 .error-page {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
 
-	/* controlled spacing so footer stays visible */
-	padding-top: 80px;
-	/* distance from header */
-	padding-bottom: 5px;
-	/* distance from footer */
 }
 
 .error-container {
 	text-align: center;
+	padding-top: 15%;
 }
 
 .error-title {
@@ -93,8 +117,8 @@ main {
 }
 
 /* --------------------------------------------------
-   PANEL CONTAINER (your popup panel)
--------------------------------------------------- 
+   5. COMPONENTS: PANELS, OVERLAYS, POPUPS
+-------------------------------------------------- */
 
 .panel-container {
 	z-index: 2000;
@@ -122,16 +146,8 @@ main {
 	cursor: pointer;
 }
 
-*/
-
 /* --------------------------------------------------
-   FOOTER
+   6. UTILITIES (future section)
 -------------------------------------------------- */
 
-footer {
-	text-align: center;
-
-	/* reduced spacing so it stays visible */
-	margin-top: 5px;
-	padding: 0px 0;
-}
+/* Add utility classes here later if needed */
