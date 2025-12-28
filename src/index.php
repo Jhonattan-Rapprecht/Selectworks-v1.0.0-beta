@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 
-if ($route === 'phpinfo') {
+if ($path === 'phpinfo') {
     phpinfo();
     exit;
 }
