@@ -8,9 +8,14 @@ ini_set('display_errors', 1);
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 
+if ($route === 'phpinfo') {
+    phpinfo();
+    exit;
+}
+
 $routes = [
     ''            => 'slw-webapp-v1/app-page-templates/selectworks.php',
-    'index.php'            => 'slw-webapp-v1/app-page-templates/selectworks.php',
+    'index.php'   => 'slw-webapp-v1/app-page-templates/selectworks.php',
     'contact'     => 'slw-webapp-v1/app-modules/contact/contact.php',
     'vacatures'   => 'slw-webapp-v1/app-modules/vacatures/vacatures.php',
     'opdrachten'  => 'slw-webapp-v1/app-modules/opdrachten/opdrachten.php',
