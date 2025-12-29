@@ -1,0 +1,68 @@
+         .page-header
+
+         {
+         
+         background-color: lightgrey;
+         border:1px solid black;
+         border-radius: 30px;
+         margin-left:auto; 
+ 		   margin-right: auto;
+ 		   
+ 		   
+         }
+         
+         .page-header p
+         
+         {
+         
+         text-align: center;
+         
+         }
+			
+			.page-header img
+
+         {
+         	
+         margin-left:auto;
+         margin-right: auto;
+         padding-top:50px;
+ 		   
+ 		   
+         }
+ 		   
+         footer
+ 		   
+         {
+
+			
+			position: absolute;
+			bottom: 0px;
+			padding-top: 10px;
+			padding-bottom: 20px;
+			margin-left:auto; 		   
+ 		   margin-right: auto;
+ 		   width: 100%;
+ 		   background-color: black;
+ 		   text-align: center;
+ 		   color: white;
+ 		   
+ 		   }
+
+
+.container{
+
+border; 1px solid;
+margin-left: auto;
+margin-right: auto;
+margin-top: 10%;
+width: 30%
+
+}
+
+form h2
+
+{
+
+text-align: center;
+
+}
