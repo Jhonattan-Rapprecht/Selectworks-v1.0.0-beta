@@ -1,0 +1,171 @@
+			body
+			
+			{
+			
+			
+			}
+			
+			.container-main
+			
+			
+			{
+			
+			
+						
+			}
+			
+			.form-container
+			
+			
+			{
+			
+			
+						
+			}
+			
+			
+			
+			.page-header
+
+         {
+         
+         background-color: lightgrey;
+         border:1px solid black;
+         border-radius: 30px;
+ 		   
+         }
+			
+			.page-header img
+
+         {
+         	
+         display: block;
+         margin-left:auto;
+         margin-right:auto; 
+         padding-top:50px;
+ 		   background-color: lightgrey;
+ 		   
+         }
+ 		   
+         footer
+ 		   
+         {
+
+			
+			position: relative;
+			bottom: 0px;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			margin-left:auto; 		   
+ 		   margin-right: auto;
+ 		   width: 100%;
+ 		   background-color: lightgrey;
+ 		   
+ 		   }
+ 		   
+ 		   .form-title
+ 		   
+ 		   {
+ 		   margin-top: 100px;
+ 		   margin-bottom: 50px;
+ 		   padding-bottom: 100px;
+ 		   text-align: center;
+ 		   
+}
+ 		   
+form h2
+ 		   
+{
+
+text-decoration: underline;
+ 		   
+}
+ 		   
+.form-horizontal
+
+{
+
+border: 5px black solid;
+border-radius: 50px;
+padding-left: 10%;
+padding-right: 5%;
+padding-bottom: 50px;
+
+}
+
+.persinfo
+
+{
+	
+float: left;
+display: block;
+padding-right: 95px;
+
+}
+
+.adresinfo
+
+{
+	
+float: left;
+display: block;
+padding-right: 30px;
+
+}
+
+.continfo
+
+{
+	
+float: left;
+display: block;
+
+
+}
+
+
+.inloginfo
+
+{
+	
+float: left;
+display: block;
+
+
+}
+
+.submitinfo
+
+{
+
+margin-top: 50px;
+margin-bottom: 50px;
+/*border:1px solid black;
+border-radius: 30px;*/
+         
+}
+
+.submitbutton
+
+{
+
+width:50%;
+margin-top: 50px;
+margin-bottom: 50px;
+padding: 30px;
+background-color: lightblue;
+border:1px solid black;
+border-radius: 30px;
+margin-left:auto;
+margin-right:auto;
+
+}
+
+.submitinfo button
+
+{
+
+width: 100%;
+
+}
+

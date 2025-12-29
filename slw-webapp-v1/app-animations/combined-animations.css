@@ -1,0 +1,70 @@
+#load {
+
+	
+
+
+}		
+		
+.s-animation 
+		
+{
+
+  width: 50px;
+  height: 35px;
+  background-color: black;
+  position: relative;
+  animation-name: s-animation;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 25px;
+
+}
+
+@keyframes s-animation
+
+{
+
+  0%	 {background-color:white; left: 93%; top: 0px; width: 100%; }
+  20%  {background-color:black; left: 0%; top: 0px; width: 5%; }
+  30%  {background-color:black; left: 0%; top: 0px; width: 5%; }
+  70%  {background-color:black; left: 93%; top: 640px; width: 5%; }
+  100% {background-color:white; left: 0%; top: 640px; width: 100%; }
+
+}
+
+.w-animation
+
+{
+
+  width: 50px;
+  height: 35px;
+  background-color: black;
+  position: relative;
+  animation-name: w-animation;
+  animation-duration: 4s;
+  animation-direction: alternate;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 25px;
+
+}
+
+@keyframes w-animation 
+
+{
+
+  0%   {background-color:white; left: 0%; top: 0px;}
+  30%  {background-color:black; left: 0%; top: 600px;}
+  50%  {background-color:black; left: 45%; top: 400px;}
+  60%  {background-color:black; left: 45%; top: 0px;}
+  70%  {background-color:black; left: 45%; top: 300px;}
+  80%  {background-color:grey; left: 93%; top: 600px;}
+  100% {background-color:white; left: 93%; top: 0px;}
+
+}
