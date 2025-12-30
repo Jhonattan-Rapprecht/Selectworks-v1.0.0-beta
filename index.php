@@ -3,22 +3,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-/*
-|--------------------------------------------------------------------------
-| Database connection and initialization - self-healing on every request
-|--------------------------------------------------------------------------
-*/
-
-require __DIR__ . '/slw-webapp-v1/app-db/initDB.php';
-
-
 
 /*
 |--------------------------------------------------------------------------
 | BASE PATH (filesystem)
 |--------------------------------------------------------------------------
 */
-define('BASE_PATH', __DIR__);
+define('BASE_PATH', realpath(__DIR__));
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +19,17 @@ define('BASE_PATH', __DIR__);
 | If you move to production root, set it to ''.
 */
 define('BASE_URL', '');
+
+
+/*
+|--------------------------------------------------------------------------
+| Database connection and initialization - self-healing on every request
+|--------------------------------------------------------------------------
+*/
+
+require BASE_PATH . '/slw-webapp-v1/app-db/initDB.php';
+
+
 
 /*
 |--------------------------------------------------------------------------
