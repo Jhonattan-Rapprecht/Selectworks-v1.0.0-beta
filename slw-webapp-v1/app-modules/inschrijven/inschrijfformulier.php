@@ -91,7 +91,7 @@
 
 <div class="form-container">
 
-<form class="form-horizontal" action='inschrijving-verwerken.php' method="POST">
+<form class="form-horizontal" action="/slw-webapp-v1/app-modules/inschrijven/inschrijving-verwerken.php" method="POST">
 
   <fieldset>
 

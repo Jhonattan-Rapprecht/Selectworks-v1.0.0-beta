@@ -1,87 +1,64 @@
+<?php
+session_start();
 
-<?php include '../../app-db/dbcon.php'; ?>
-	
-<?php 
-	
-	echo "<p> Dit is de pagina waar leden terechtkomen nadat ze op de registreer knop hebben gedrukt <p>"
-	
+// Correct include path
+include __DIR__ . '/../../app-db/dbcon.php';
+
+echo "<p> Dit is de pagina waar leden terechtkomen nadat ze op de registreer knop hebben gedrukt </p>";
+
+// Initialize variables
+$voorletters = $achternaam = $geboortedatum = $geslacht = $straatnaam = 
+$huisnummer_toevoeging = $postcode = $woonplaats = $telnr = 
+$email = $wachtwoord = "";
+
+// Handle POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $voorletters = test_input($_POST["voorletters"]);
+    $achternaam = test_input($_POST["achternaam"]);
+    $geboortedatum = test_input($_POST["geboortedatum"]);
+    $geslacht = test_input($_POST["geslacht"]);
+    $straatnaam = test_input($_POST["straatnaam"]);
+    $huisnummer_toevoeging = test_input($_POST["huisnummer_toevoeging"]);
+    $postcode = test_input($_POST["postcode"]);
+    $woonplaats = test_input($_POST["woonplaats"]);
+    $telnr = test_input($_POST["telnr"]);
+    $email = test_input($_POST["email"]);
+    $wachtwoord = test_input($_POST["wachtwoord"]);
+
+    // Hash password
+    $hashed = password_hash($wachtwoord, PASSWORD_DEFAULT);
+
+    // Insert into DB
+    $sql = "INSERT INTO kandidaten (Voorletters, Email, Wachtwoord)
+            VALUES ('$voorletters', '$email', '$hashed')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Nieuwe data is opgeslagen in de database.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+
+// Sanitizer
+function test_input($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
+}
 ?>
-	
+
+<h2>Your Input:</h2>
 <?php
-	
-	// define variables and set to empty values
-	
-	$voorletters = $achternaam = $geboortedatum = $geslacht = $straatnaam = $huisnummer_toevoeging = $postcode = $woonplaats = $telefoonnummer =
-	$email = $wachtwoord = "";
-	
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	  	
-	  	
-	$voorletters = test_input($_POST["voorletters"]);
-	$achternaam = test_input($_POST["achternaam"]);
-	$geboortedatum = test_input($_POST["geboortedatum"]);
-	$geslacht = test_input($_POST["geslacht"]);
-	$straatnaam = test_input($_POST["straatnaam"]);
-	$huisnummer_toevoeging = test_input($_POST["huisnummer_toevoeging"]);
-	$postcode = test_input($_POST["postcode"]);
-	$woonplaats = test_input($_POST["woonplaats"]);
-	$telnr = test_input($_POST["telnr"]);
-	$email = test_input($_POST["email"]);
-	$wachtwoord = test_input($_POST["wachtwoord"]);
-	  
-	  
-	}
-	
-	function test_input($data) {
-	  	
-	$data = trim($data);
-	$data = stripslashes($data);
-	$data = htmlspecialchars($data);
-	return $data;
-	  
-	}
-	
-	$sql = "INSERT INTO kandidaten (Voorletters, Email, Wachtwoord)
-	VALUES ('$voorletters','$email','$wachtwoord')";
-	
-	if ($conn->query($sql) === TRUE) {
-	echo "Nieuwe data is opgeslagen in de database.";
-	
-	} else {
-	 
-	echo "Error: " . $sql . "<br>" . $conn->error;
-	  
-	}
-	
-	$conn->close();
-	
-	
-	?>
-	
-	
-<?php
-	
-	echo "<h2>Your Input:</h2>";
-	echo $voorletters;
-	echo "<br>";
-	echo $achternaam;
-	echo "<br>";
-	echo $geboortedatum;
-	echo "<br>";
-	echo $geslacht;
-	echo "<br>";
-	echo $straatnaam;
-	echo "<br>";
-	echo $huisnummer_toevoeging;
-	echo "<br>";
-	echo $postcode;
-	echo "<br>";
-	echo $woonplaats;
-	echo "<br>";
-	echo $telnr;
-	echo "<br>";
-	echo $email;
-	echo "<br>";
-	echo $wachtwoord;
-	
+echo $voorletters . "<br>";
+echo $achternaam . "<br>";
+echo $geboortedatum . "<br>";
+echo $geslacht . "<br>";
+echo $straatnaam . "<br>";
+echo $huisnummer_toevoeging . "<br>";
+echo $postcode . "<br>";
+echo $woonplaats . "<br>";
+echo $telnr . "<br>";
+echo $email . "<br>";
+echo $wachtwoord . "<br>";
 ?>
