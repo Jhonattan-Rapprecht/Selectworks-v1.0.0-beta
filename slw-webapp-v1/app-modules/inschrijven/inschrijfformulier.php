@@ -100,7 +100,7 @@
     </div>
     
     
-   <div class="persinfo">    
+   <div class="persinfo">
     
     <h2>Persoonlijke Informatie</h2>
     

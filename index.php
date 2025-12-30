@@ -17,7 +17,7 @@ define('BASE_PATH', __DIR__);
 | This is the folder your project lives in.
 | If you move to production root, set it to ''.
 */
-define('BASE_URL', 'selectworks');
+define('BASE_URL', '');
 
 /*
 |--------------------------------------------------------------------------
@@ -26,18 +26,6 @@ define('BASE_URL', 'selectworks');
 */
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-/*
-|--------------------------------------------------------------------------
-| Strip the base folder from the URL
-|--------------------------------------------------------------------------
-| Example:
-|   /selectworks/business → business
-|   /selectworks/         → ''
-*/
-if (str_starts_with($path, BASE_URL)) {
-    $path = substr($path, strlen(BASE_URL));
-    $path = trim($path, '/');
-}
 
 /*
 |--------------------------------------------------------------------------
