@@ -20,7 +20,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush" >
 
-<link rel="stylesheet" href="inschrijven.css" >
+<link rel="stylesheet" href="/slw-webapp-v1/app-modules/inschrijven/inschrijven.css" >
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -270,7 +270,7 @@
 
 </div>
 
-<?php include '/slw-webapp-v1/app-includes/footer/footer.php' ?>
+<?php include BASE_PATH . '/slw-webapp-v1/app-includes/footer/footer.php' ?>
 
 
 
