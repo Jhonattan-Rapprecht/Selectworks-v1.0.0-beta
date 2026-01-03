@@ -1,62 +1,154 @@
-	
-	
-	/* Custom stylesheet */
+/* --------------------------------------------------
+   1. GLOBAL RESET & BASE LAYOUT
+-------------------------------------------------- */
 
-	body
-	
-	{
-	
-	margin 0;
-	padding: 0px;
-	
-	}
-	
-  .page-header p
-
- 	{
-
- 	padding-left: 10px;
-	padding-top: 50px;
- 	text-align: center;
- 		   
- 	}
- 	
- 	.panel-container
- 	
-	{
- 	
- 	z-index: 2000; 
-	position: fixed; 
-	right: 25%; 
-	top: 15%; 
-	width: 52%; 
-	margin-left: auto; 
-	margin-right: auto; 
-	height: 500px; 
-	background-color: white; 
-	padding: 50px; 
-	border: 10px solid black; 
-	border-radius: 1%;
-
-	}
-	
-	/* The Close Button for the content panel */
-	
-	.close {
-  color: grey;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
- 	footer
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: Arial, sans-serif;
+}
 
- 	{
-	
+/* Main content grows to fill space between navbar & footer */
+main {
+	flex: 1;
+	width: 100%;
+	display: block;
+}
 
- 	padding-top: 50px;
- 	margin-left:auto; 		   
- 	margin-right: auto;
- 
+/* --------------------------------------------------
+   2. NAVBAR (Bootstrap-based)
+-------------------------------------------------- */
 
- 	}
+/* If your navbar is fixed-top (Bootstrap class: .navbar-fixed-top)
+   we create spacing BELOW it using margin on <main>, NOT padding on <body>.
+*/
+
+.navbar-fixed-top {
+	z-index: 1030;
+	/* ensure it stays above content */
+}
+
+/* Adjust this value to match your navbar height */
+main {
+	margin-top: 70px;
+	/* default Bootstrap navbar height */
+}
+
+/* If your navbar is NOT fixed-top, remove the margin-top above */
+
+
+/* --------------------------------------------------
+   3. GLOBAL PAGE STRUCTURE (HEADER, FOOTER, LAYOUT)
+-------------------------------------------------- */
+
+/* PAGE HEADER (logo + title area) */
+.page-header {
+	width: 100%;
+	text-align: center;
+	padding: 20px 0 10px 0;
+}
+
+.page-header p {
+	margin: 0;
+}
+
+.page-header img {
+	display: block;
+	margin: 0 auto;
+	padding-top: 25px;
+	width: 300px;
+	height: auto;
+}
+
+/* FOOTER (HTML tag <footer class="container"> ) */
+footer.container {
+	padding: 20px;
+}
+
+
+/* --------------------------------------------------
+   4. PAGE-SPECIFIC STYLES (404 PAGE)
+-------------------------------------------------- */
+
+.error-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+
+}
+
+.error-container {
+	text-align: center;
+	padding-top: 25vh;
+}
+
+.error-title {
+	font-size: 120px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.error-message {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.error-button {
+	display: inline-block;
+	padding: 12px 24px;
+	background: #007bff;
+	color: white;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.error-button:hover {
+	background: #0056b3;
+}
+
+/* --------------------------------------------------
+   5. COMPONENTS: PANELS, OVERLAYS, POPUPS
+-------------------------------------------------- */
+
+.panel-container {
+	z-index: 2000;
+	position: fixed;
+	right: 25%;
+	top: 15%;
+	width: 52%;
+	height: 500px;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	background-color: white;
+	padding: 50px;
+
+	border: 10px solid black;
+	border-radius: 1%;
+}
+
+.close {
+	color: grey;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* --------------------------------------------------
+   6. UTILITIES (future section)
+-------------------------------------------------- */
+
+/* Add utility classes here later if needed */
