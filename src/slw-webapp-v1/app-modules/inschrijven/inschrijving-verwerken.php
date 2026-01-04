@@ -1,13 +1,9 @@
 
-<?php include '../../app-db/dbcon.php'; ?>
-	
 <?php 
+
+include __DIR__ . '/../../app-db/dbcon.php';
 	
-	echo "<p> Dit is de pagina waar leden terechtkomen nadat ze op de registreer knop hebben gedrukt <p>"
-	
-?>
-	
-<?php
+echo "<p> Dit is de pagina waar leden terechtkomen nadat ze op de registreer knop hebben gedrukt <p>";
 	
 	// define variables and set to empty values
 	
@@ -56,10 +52,6 @@
 	$conn->close();
 	
 	
-	?>
-	
-	
-<?php
 	
 	echo "<h2>Your Input:</h2>";
 	echo $voorletters;

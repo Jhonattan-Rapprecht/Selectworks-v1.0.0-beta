@@ -59,8 +59,8 @@
           <ul class="nav navbar-nav">
 
 			
-			<li><a href="../werkgevers/werkgevers.php">Voor werkgevers</a></li>
-			<li><a href="../vacatures/vacatures.php">Vacatures</a></li>
+			<li><a href="werkgevers">Voor werkgevers</a></li>
+			<li><a href="vacatures">Vacatures</a></li>
 			
           
  
@@ -72,7 +72,7 @@
 		<ul class="nav navbar-nav navbar-right">
 		
       <li class="active"><a href=""><span class="glyphicon glyphicon-user"></span> Inschrijven</a></li>
-      <li><a href="../inloggen/inlog-portaal.php"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
+      <li><a href="inloggen"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
       
    	</ul>
   
@@ -91,7 +91,7 @@
 
 <div class="form-container">
 
-<form class="form-horizontal" action='inschrijving-verwerken.php' method="POST">
+<form class="form-horizontal" action='/slw-webapp-v1/app-modules/inschrijven/inschrijving-verwerken.php' method="POST">
 
   <fieldset>
 
