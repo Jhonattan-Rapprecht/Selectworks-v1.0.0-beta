@@ -1,7 +1,6 @@
 {
   "name": "Selectworks-Codespace-Build-1.0.0-Dev",
-  "dockerComposeFile": [
-    "docker-compose.yml"
+  "dockerComposeFile": "docker-compose.yml"
   ],
   "service": "web",
   "workspaceFolder": "/workspace",
