@@ -18,7 +18,7 @@ RUN a2enmod rewrite
 WORKDIR /var/www
 
 # Copy your application code
-COPY ../../src/ /var/www/
+COPY src/ /var/www/
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
