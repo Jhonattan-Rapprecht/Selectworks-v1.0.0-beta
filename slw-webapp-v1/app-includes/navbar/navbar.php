@@ -42,7 +42,7 @@
           </li>
 
           <li class="<?= $currentPath === 'inloggen' ? 'active' : '' ?>">
-            <a href="/inloggen">
+            <a href="/inlogportaal">
               <span class="glyphicon glyphicon-log-in"></span> Inloggen
             </a>
           </li>

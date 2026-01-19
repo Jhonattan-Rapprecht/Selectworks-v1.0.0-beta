@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed = password_hash($wachtwoord, PASSWORD_DEFAULT);
 
     // Insert into DB
-    $sql = "INSERT INTO kandidaten (Voorletters, Email, Wachtwoord)
+    $sql = "INSERT INTO kandidaten (voorletters, email, wachtwoord)
             VALUES ('$voorletters', '$email', '$hashed')";
 
     if ($conn->query($sql) === TRUE) {

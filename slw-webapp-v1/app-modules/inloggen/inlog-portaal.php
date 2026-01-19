@@ -64,7 +64,7 @@
 					<ul class="nav navbar-nav navbar-right">
 					
 					      <li><a href="../inschrijven/inschrijfformulier.php"><span class="glyphicon glyphicon-user"></span> Inschrijven</a></li>
-					      <li class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
+					      <li class="active"><a href=""><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
 					      
 			   	</ul>
   
@@ -82,7 +82,7 @@
 
  <div class="container">
 
-      <form name="inlog-portaal" method="post" action="login-verwerken.php" >
+      <form name="inlog-portaal" method="post" action="inloggen">
       
       
         <h2 class="form-signin-heading">Leden login </h2>
