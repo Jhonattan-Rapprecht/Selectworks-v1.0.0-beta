@@ -1,171 +1,285 @@
-			body
-			
-			{
-			
-			
-			}
-			
-			.container-main
-			
-			
-			{
-			
-			
-						
-			}
-			
-			.form-container
-			
-			
-			{
-			
-			
-						
-			}
-			
-			
-			
-			.page-header
+/* ==========================================================================
+   SelectWorks Registration – Corporate / SaaS multi-step form
+   ========================================================================== */
 
-         {
-         
-         background-color: lightgrey;
-         border:1px solid black;
-         border-radius: 30px;
- 		   
-         }
-			
-			.page-header img
-
-         {
-         	
-         display: block;
-         margin-left:auto;
-         margin-right:auto; 
-         padding-top:50px;
- 		   background-color: lightgrey;
- 		   
-         }
- 		   
-         footer
- 		   
-         {
-
-			
-			position: relative;
-			bottom: 0px;
-			padding-top: 50px;
-			padding-bottom: 50px;
-			margin-left:auto; 		   
- 		   margin-right: auto;
- 		   width: 100%;
- 		   background-color: lightgrey;
- 		   
- 		   }
- 		   
- 		   .form-title
- 		   
- 		   {
- 		   margin-top: 100px;
- 		   margin-bottom: 50px;
- 		   padding-bottom: 100px;
- 		   text-align: center;
- 		   
-}
- 		   
-form h2
- 		   
-{
-
-text-decoration: underline;
- 		   
-}
- 		   
-.form-horizontal
-
-{
-
-border: 5px black solid;
-border-radius: 50px;
-padding-left: 10%;
-padding-right: 5%;
-padding-bottom: 50px;
-
+:root {
+    --bg: #f4f6fa;
+    --card-bg: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --accent-hover: #1558c7;
+    --border: rgba(15, 23, 42, 0.10);
+    --radius: 10px;
+    --shadow-card: 0 12px 36px rgba(15, 23, 42, 0.07);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-.persinfo
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
 
-{
-	
-float: left;
-display: block;
-padding-right: 95px;
-
+body {
+    padding-top: 80px;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.adresinfo
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-{
-	
-float: left;
-display: block;
-padding-right: 30px;
-
+/* --- Page header / logo bar ---------------------------------------------- */
+.page-header {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 16px auto 0 auto;
+    padding: 10px 16px;
+    max-width: 960px;
+    width: 94%;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.page-header img {
+    display: inline-block;
+    max-width: 220px;
+    width: auto;
+    height: auto;
 }
 
-.continfo
-
-{
-	
-float: left;
-display: block;
-
-
+/* --- Registration card --------------------------------------------------- */
+.reg-card {
+    max-width: 580px;
+    width: 94%;
+    margin: 2rem auto 0 auto;
+    background: var(--card-bg);
+    padding: 32px 30px 28px 30px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
 }
 
-
-.inloginfo
-
-{
-	
-float: left;
-display: block;
-
-
+.reg-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    text-align: center;
+}
+.reg-subtext {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin: 0 0 22px 0;
 }
 
-.submitinfo
+/* --- Step indicators ----------------------------------------------------- */
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.step {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--bg);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+}
+.step.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.2);
+}
+.step.active .step-num { background: rgba(255,255,255,0.3); }
 
-{
+/* --- Form steps ---------------------------------------------------------- */
+.form-step { display: none; }
+.form-step.active { display: block; }
 
-margin-top: 50px;
-margin-bottom: 50px;
-/*border:1px solid black;
-border-radius: 30px;*/
-         
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
 }
 
-.submitbutton
+/* --- Fields -------------------------------------------------------------- */
+.field { margin-bottom: 14px; }
 
-{
-
-width:50%;
-margin-top: 50px;
-margin-bottom: 50px;
-padding: 30px;
-background-color: lightblue;
-border:1px solid black;
-border-radius: 30px;
-margin-left:auto;
-margin-right:auto;
-
+.field label,
+.reg-card label:not(.radio-label):not(.check-label) {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text);
 }
 
-.submitinfo button
+.reg-card .form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.reg-card .form-control:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(31,111,235,0.12);
+}
 
-{
+/* Two-column row */
+.form-row-2 {
+    display: flex;
+    gap: 14px;
+}
+.form-row-2 .field { flex: 1; }
 
-width: 100%;
+/* Radio group */
+.radio-group {
+    display: flex;
+    gap: 14px;
+    padding-top: 6px;
+}
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.88rem;
+    color: var(--text);
+    cursor: pointer;
+}
 
+/* Checkboxes / agreements */
+.agreements { margin: 16px 0; }
+.check-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.84rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.check-label input[type="checkbox"] { margin-top: 3px; }
+
+/* --- Step actions -------------------------------------------------------- */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-next, .btn-prev {
+    padding: 9px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.btn-next:hover, .btn-prev:hover { background: #f0f4ff; }
+
+.btn-next {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+.btn-next:hover { background: var(--accent-hover); }
+
+.btn-submit {
+    padding: 11px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(31,111,235,0.18);
+    transition: opacity 0.15s;
+}
+.btn-submit:hover { opacity: 0.92; }
+
+/* --- Alerts -------------------------------------------------------------- */
+.alert-danger {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+}
+.alert-success {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+}
+
+/* --- Login prompt -------------------------------------------------------- */
+.login-prompt {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+.login-prompt a { font-weight: 500; }
+
+/* --- Footer -------------------------------------------------------------- */
+footer {
+    padding: 14px 8px;
+    margin-top: auto;
+    width: 100%;
+    background: #0b1220;
+    color: #94a3b8;
+    text-align: center;
+    font-size: 12px;
+}
+footer a { color: #cbd5e1; }
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 580px) {
+    body { padding-top: 60px; }
+    .reg-card { margin-top: 1.5rem; padding: 20px 16px; }
+    .form-row-2 { flex-direction: column; gap: 0; }
+    .steps { flex-wrap: wrap; }
+    .page-header { margin: 10px 8px 0 8px; }
 }
 

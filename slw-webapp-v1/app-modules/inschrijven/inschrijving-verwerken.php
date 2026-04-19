@@ -1,64 +1,120 @@
 <?php
 session_start();
 
-// Correct include path
+/* =========================================================================
+   SelectWorks – Registration handler (inschrijving-verwerken.php)
+   Secure: CSRF, prepared statements, password confirmation, flash messages
+   ========================================================================= */
+
+// Only accept POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: /inschrijven');
+    exit;
+}
+
+// --- CSRF validation -----------------------------------------------------
+if (
+    empty($_POST['csrf_token']) ||
+    !isset($_SESSION['csrf_token']) ||
+    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+) {
+    $_SESSION['reg_error'] = 'Ongeldige sessie. Probeer het opnieuw.';
+    header('Location: /inschrijven');
+    exit;
+}
+
+// Consume the token so it can't be reused
+unset($_SESSION['csrf_token']);
+
+// --- DB connection -------------------------------------------------------
 include __DIR__ . '/../../app-db/dbcon.php';
 
-echo "<p> Dit is de pagina waar leden terechtkomen nadat ze op de registreer knop hebben gedrukt </p>";
+// --- Helper: trim input --------------------------------------------------
+function clean(string $key): string {
+    return trim($_POST[$key] ?? '');
+}
 
-// Initialize variables
-$voorletters = $achternaam = $geboortedatum = $geslacht = $straatnaam = 
-$huisnummer_toevoeging = $postcode = $woonplaats = $telnr = 
-$email = $wachtwoord = "";
+// --- Collect fields ------------------------------------------------------
+$voorletters          = clean('voorletters');
+$achternaam           = clean('achternaam');
+$geboortedatum        = clean('geboortedatum');
+$geslacht             = clean('geslacht');
+$straatnaam           = clean('straatnaam');
+$huisnummer_toevoeging = clean('huisnummer_toevoeging');
+$postcode             = clean('postcode');
+$woonplaats           = clean('woonplaats');
+$telnr                = clean('telnr');
+$email                = clean('email');
+$wachtwoord           = clean('wachtwoord');
+$wachtwoord_confirm   = clean('wachtwoord_herhaal');
 
-// Handle POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Repopulation data in case of error redirect
+$_SESSION['reg_old'] = $_POST;
+unset($_SESSION['reg_old']['wachtwoord'], $_SESSION['reg_old']['wachtwoord_bevestig'], $_SESSION['reg_old']['csrf_token']);
 
-    $voorletters = test_input($_POST["voorletters"]);
-    $achternaam = test_input($_POST["achternaam"]);
-    $geboortedatum = test_input($_POST["geboortedatum"]);
-    $geslacht = test_input($_POST["geslacht"]);
-    $straatnaam = test_input($_POST["straatnaam"]);
-    $huisnummer_toevoeging = test_input($_POST["huisnummer_toevoeging"]);
-    $postcode = test_input($_POST["postcode"]);
-    $woonplaats = test_input($_POST["woonplaats"]);
-    $telnr = test_input($_POST["telnr"]);
-    $email = test_input($_POST["email"]);
-    $wachtwoord = test_input($_POST["wachtwoord"]);
+// --- Server-side validation ----------------------------------------------
+$errors = [];
 
-    // Hash password
-    $hashed = password_hash($wachtwoord, PASSWORD_DEFAULT);
+if ($voorletters === '')    $errors[] = 'Voorletters zijn verplicht.';
+if ($achternaam === '')     $errors[] = 'Achternaam is verplicht.';
+if ($geboortedatum === '')  $errors[] = 'Geboortedatum is verplicht.';
+if (!in_array($geslacht, ['man', 'vrouw', 'anders'], true)) $errors[] = 'Kies een geldig geslacht.';
+if ($straatnaam === '')     $errors[] = 'Straatnaam is verplicht.';
+if ($postcode === '')       $errors[] = 'Postcode is verplicht.';
+if ($woonplaats === '')     $errors[] = 'Woonplaats is verplicht.';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Ongeldig e-mailadres.';
+if (strlen($wachtwoord) < 8) $errors[] = 'Wachtwoord moet minimaal 8 tekens zijn.';
+if ($wachtwoord !== $wachtwoord_confirm) $errors[] = 'Wachtwoorden komen niet overeen.';
 
-    // Insert into DB
-    $sql = "INSERT INTO kandidaten (voorletters, email, wachtwoord)
-            VALUES ('$voorletters', '$email', '$hashed')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Nieuwe data is opgeslagen in de database.";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+// Check for duplicate email (prepared statement)
+if (empty($errors)) {
+    $check = $conn->prepare('SELECT id FROM kandidaten WHERE email = ? LIMIT 1');
+    $check->bind_param('s', $email);
+    $check->execute();
+    $check->store_result();
+    if ($check->num_rows > 0) {
+        $errors[] = 'Dit e-mailadres is al geregistreerd.';
     }
+    $check->close();
+}
 
+if (!empty($errors)) {
+    $_SESSION['reg_error'] = implode('<br>', $errors);
+    header('Location: /inschrijven');
+    exit;
+}
+
+// --- Hash password -------------------------------------------------------
+$hashed = password_hash($wachtwoord, PASSWORD_DEFAULT);
+
+// --- Insert with prepared statement --------------------------------------
+$stmt = $conn->prepare(
+    'INSERT INTO kandidaten
+        (voorletters, achternaam, geboortedatum, geslacht,
+         straatnaam, huisnummer_toevoeging, postcode, woonplaats,
+         telefoonnummer, email, wachtwoord)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+);
+$stmt->bind_param(
+    'sssssssssss',
+    $voorletters, $achternaam, $geboortedatum, $geslacht,
+    $straatnaam, $huisnummer_toevoeging, $postcode, $woonplaats,
+    $telnr, $email, $hashed
+);
+
+if ($stmt->execute()) {
+    // Clear repopulation data on success
+    unset($_SESSION['reg_old']);
+    $_SESSION['reg_success'] = 'Account aangemaakt! Je kunt nu inloggen.';
+    $stmt->close();
     $conn->close();
+    header('Location: /inlogportaal');
+    exit;
 }
 
-// Sanitizer
-function test_input($data) {
-    return htmlspecialchars(stripslashes(trim($data)));
-}
-?>
-
-<h2>Your Input:</h2>
-<?php
-echo $voorletters . "<br>";
-echo $achternaam . "<br>";
-echo $geboortedatum . "<br>";
-echo $geslacht . "<br>";
-echo $straatnaam . "<br>";
-echo $huisnummer_toevoeging . "<br>";
-echo $postcode . "<br>";
-echo $woonplaats . "<br>";
-echo $telnr . "<br>";
-echo $email . "<br>";
-echo $wachtwoord . "<br>";
-?>
+// Insert failed
+$_SESSION['reg_error'] = 'Er is iets misgegaan. Probeer het later opnieuw.';
+$stmt->close();
+$conn->close();
+header('Location: /inschrijven');
+exit;

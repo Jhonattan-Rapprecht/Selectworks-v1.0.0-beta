@@ -1,68 +1,248 @@
-         .page-header
+/* ==========================================================================
+   SelectWorks Login Portal – Corporate / SaaS-ready
+   ========================================================================== */
 
-         {
-         
-         background-color: lightgrey;
-         border:1px solid black;
-         border-radius: 30px;
-         margin-left:auto; 
- 		   margin-right: auto;
- 		   
- 		   
-         }
-         
-         .page-header p
-         
-         {
-         
-         text-align: center;
-         
-         }
-			
-			.page-header img
-
-         {
-         	
-         margin-left:auto;
-         margin-right: auto;
-         padding-top:50px;
- 		   
- 		   
-         }
- 		   
-         footer
- 		   
-         {
-
-			
-			position: absolute;
-			bottom: 0px;
-			padding-top: 10px;
-			padding-bottom: 20px;
-			margin-left:auto; 		   
- 		   margin-right: auto;
- 		   width: 100%;
- 		   background-color: black;
- 		   text-align: center;
- 		   color: white;
- 		   
- 		   }
-
-
-.container{
-
-border; 1px solid;
-margin-left: auto;
-margin-right: auto;
-margin-top: 10%;
-width: 30%
-
+:root {
+    --bg: #f4f6fa;
+    --card-bg: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --accent-hover: #1558c7;
+    --border: rgba(15, 23, 42, 0.10);
+    --radius: 10px;
+    --shadow-card: 0 12px 36px rgba(15, 23, 42, 0.07);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-form h2
+/* --- Reset & base -------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
 
-{
+html, body { height: 100%; margin: 0; }
 
-text-align: center;
+body {
+    padding-top: 80px;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- Page header / logo bar ---------------------------------------------- */
+.page-header {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 16px auto 0 auto;
+    padding: 10px 16px;
+    max-width: 960px;
+    width: 94%;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.page-header p { margin: 0; }
+.page-header img {
+    display: inline-block;
+    max-width: 260px;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+}
+
+/* --- Login card ---------------------------------------------------------- */
+.login-card {
+    max-width: 420px;
+    width: 92%;
+    margin: 2.5rem auto 0 auto;
+    background: var(--card-bg);
+    padding: 32px 28px 28px 28px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+}
+
+.login-heading {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    text-align: center;
+    color: var(--text);
+}
+
+.login-subtext {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin: 0 0 22px 0;
+}
+
+/* --- SSO buttons --------------------------------------------------------- */
+.sso-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.btn-sso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+}
+.btn-sso:hover {
+    background: #f0f4ff;
+    box-shadow: 0 2px 8px rgba(31,111,235,0.08);
+    text-decoration: none;
+}
+.sso-icon { font-size: 18px; line-height: 1; }
+
+.btn-sso-microsoft { border-color: #0078d4; color: #0078d4; }
+.btn-sso-microsoft:hover { background: #e8f2fd; }
+
+.btn-sso-google { border-color: #4285f4; color: #4285f4; }
+.btn-sso-google:hover { background: #eaf1fe; }
+
+/* --- Divider ------------------------------------------------------------- */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 18px 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+.divider span {
+    padding: 0 12px;
+    white-space: nowrap;
+}
+
+/* --- Form fields --------------------------------------------------------- */
+.login-card label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.login-card .form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+    box-shadow: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.login-card .form-control:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(31,111,235,0.12);
+}
+
+/* --- Remember / forgot row ----------------------------------------------- */
+.form-row-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 0.84rem;
+}
+.remember-label {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    cursor: pointer;
+    margin: 0 !important;
+}
+.remember-label input[type="checkbox"] { margin: 0; }
+.forgot-link { color: var(--accent); font-weight: 500; }
+
+/* --- Primary button ------------------------------------------------------ */
+.login-card .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(31,111,235,0.18);
+    transition: opacity 0.15s;
+}
+.login-card .btn-primary:hover { opacity: 0.92; }
+
+/* --- Sign-up prompt ------------------------------------------------------ */
+.signup-prompt {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+.signup-prompt a { font-weight: 500; }
+
+/* --- Alert --------------------------------------------------------------- */
+.alert-danger {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+footer {
+    padding: 14px 8px;
+    margin-top: auto;
+    width: 100%;
+    background: #0b1220;
+    color: #94a3b8;
+    text-align: center;
+    font-size: 12px;
+}
+footer a { color: #cbd5e1; }
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 480px) {
+    body { padding-top: 60px; }
+    .login-card { margin-top: 1.5rem; padding: 22px 18px; }
+    .page-header { margin: 10px 8px 0 8px; }
+}
+
+@media (min-width: 768px) {
+    .login-card { margin-top: 3rem; }
 }

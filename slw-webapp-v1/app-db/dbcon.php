@@ -11,10 +11,4 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Verbinden mislukt: " . $conn->connect_error);
-
-} else {
-    // Connection successful
-    echo "Verbinding gelukt";
 }
-
-?>

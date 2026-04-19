@@ -57,7 +57,10 @@ $routes = [
     'opdrachten'  => 'slw-webapp-v1/app-modules/opdrachten/opdrachten.php',
     'inschrijven' => 'slw-webapp-v1/app-modules/inschrijven/inschrijfformulier.php',
     'inlogportaal'=> 'slw-webapp-v1/app-modules/inloggen/inlog-portaal.php',
-    'inloggen'    => 'slw-webapp-v1/app-modules/inloggen/login-verwerken.php'
+    'inloggen'              => 'slw-webapp-v1/app-modules/inloggen/login-verwerken.php',
+    'inschrijven-verwerken' => 'slw-webapp-v1/app-modules/inschrijven/inschrijving-verwerken.php',
+    'profiel-update'        => 'slw-webapp-v1/app-modules/profielen/prfl-wrkzknde/profile-update.php',
+    'status-updates'        => 'slw-webapp-v1/app-modules/profielen/prfl-wrkzknde/status-updates.php'
 ];
 
 /*

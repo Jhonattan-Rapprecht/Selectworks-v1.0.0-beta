@@ -1,0 +1,125 @@
+2026-04-19 14:00:35
+METHOD: HEAD
+SESSION user_id: NOT SET
+SESSION email: NOT SET
+RAW INPUT: 
+CONTENT_TYPE: NOT SET
+---
+2026-04-19 14:00:45
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":"Test bio"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:01:01
+METHOD: POST
+SESSION user_id: NOT SET
+SESSION email: NOT SET
+RAW INPUT: {"field":"bio","value":"test bio"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:01:42
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":"Test bio"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:01:56
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":"Test bio"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:02:51
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":"Test bio"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:02:58
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":"Test bio"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:03:03
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":""}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:03:32
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"bio","value":"Test bio asdf"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:03:55
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"voorletters","value":"asd"}
+CONTENT_TYPE: application/json
+---
+2026-04-19 14:03:56
+METHOD: POST
+SESSION user_id: 7
+SESSION email: bobolongo@gmail.com
+RAW INPUT: {"field":"achternaam","value":"asdasd"}
+CONTENT_TYPE: application/json
+---
+14:05:31 user_id=7 email=bobolongo@gmail.com field=bio value=Test bioasdasd
+14:05:36 user_id=7 email=bobolongo@gmail.com field=bio value=Test bio
+14:05:41 user_id=7 email=bobolongo@gmail.com field=bio value=Test bio
+14:05:47 user_id=7 email=bobolongo@gmail.com field=bio value=Test bio
+14:05:53 user_id=7 email=bobolongo@gmail.com field=bio value=Test bio
+14:05:58 user_id=7 email=bobolongo@gmail.com field=bio value=Test bio
+14:08:32 user_id=7 email=bobolongo@gmail.com field=bio value=Test bio test
+14:08:32 RESPONSE (200): {"ok":true,"value":"Test bio test"}
+---
+14:08:47 user_id=7 email=bobolongo@gmail.com field=functie_titel value=Ingenieur
+14:08:47 RESPONSE (200): {"ok":true,"value":"Ingenieur"}
+---
+14:09:42 user_id=7 email=bobolongo@gmail.com field=linkedin value=linkedin.com/jhon-user-rapprecht
+14:09:42 RESPONSE (200): {"ok":true,"value":"linkedin.com\/jhon-user-rapprecht"}
+---
+14:09:51 user_id=7 email=bobolongo@gmail.com field=voorletters value=Jhon
+14:09:51 RESPONSE (200): {"ok":true,"value":"Jhon"}
+---
+14:10:01 user_id=7 email=bobolongo@gmail.com field=achternaam value=Rapprecht
+14:10:01 RESPONSE (200): {"ok":true,"value":"Rapprecht"}
+---
+14:10:06 user_id=7 email=bobolongo@gmail.com field=voorletters value=Jhonattan
+14:10:06 RESPONSE (200): {"ok":true,"value":"Jhonattan"}
+---
+14:10:25 user_id=7 email=bobolongo@gmail.com field=functie_titel value=Technical Implementation Consultant
+14:10:25 RESPONSE (200): {"ok":true,"value":"Technical Implementation Consultant"}
+---
+14:18:48 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker, die productief is op alle gebieden. Iemand die blijft doorzetten totdat de taak voltooid is. Uitdagingen motiveren mij om beter te worden.
+14:18:48 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker, die productief is op alle gebieden. Iemand die blijft doorzetten totdat de taak voltooid is. Uitdagingen motiveren mij om beter te worden."}
+---
+17:47:10 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker, die productief is op alle gebieden.
+17:47:10 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker, die productief is op alle gebieden."}
+---
+17:47:23 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker, die productief is op alle gebieden.
+17:47:23 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker, die productief is op alle gebieden."}
+---
+17:48:09 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker, die productief is.
+17:48:09 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker, die productief is."}
+---
+17:48:14 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker, die productief is.
+17:48:14 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker, die productief is."}
+---
+17:49:14 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker.
+17:49:14 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker."}
+---
+18:15:12 user_id=7 email=bobolongo@gmail.com field=bio value=Ik ben een hardwerkende werker. Die zijn werk goed doet en goed op tijd komt en altijd hardwerkend is.
+18:15:12 RESPONSE (200): {"ok":true,"value":"Ik ben een hardwerkende werker. Die zijn werk goed doet en goed op tijd komt en altijd hardwerkend is."}
+---
